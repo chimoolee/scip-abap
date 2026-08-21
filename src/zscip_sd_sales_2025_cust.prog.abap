@@ -42,19 +42,15 @@ DATA: gv_datum_from TYPE sy-datum VALUE '20250101',
 *----------------------------------------------------------------------*
 * Selection Screen
 *----------------------------------------------------------------------*
-SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
+DATA: lv_title001 TYPE c LENGTH 20 VALUE '선택조건'.
+
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE lv_title001.
 PARAMETERS: p_gjahr TYPE gjahr DEFAULT '2025' OBLIGATORY.
 SELECT-OPTIONS: s_kunnr FOR kna1-kunnr,
                 s_land1 FOR kna1-land1,
                 s_vkorg FOR vbrk-vkorg,
                 s_fkdat FOR vbrk-fkdat DEFAULT '20250101' TO '20251231'.
 SELECTION-SCREEN END OF BLOCK b1.
-
-*----------------------------------------------------------------------*
-* Initialization
-*----------------------------------------------------------------------*
-INITIALIZATION.
-  TEXT-001 = '선택조건'.
 
 *----------------------------------------------------------------------*
 * Start-of-Selection
